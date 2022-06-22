@@ -134,15 +134,18 @@ int main(int argc, char** argv)
     }
 
     int amount = argc - 1;
+    int delay = _MAIL_DELAY * 3600;
     
     while(1) {
         for (int i = 0; i < amount; i++) {
             if (ping(ip_addresses[i]) == 1) {
                 time_t timestamp = time(NULL);
 
-                if (timestamp - times[i] >= _MAIL_DELAY * 3600) { // only send mail about this IP when it 
-                                                                  // wasn't already sent in the last hour
-                    send_mail(ip_addresses[i], timestamp);
+                if (timestamp - times[i] >= delay) { // only send mail about this IP when it 
+                                                     // wasn't already sent in the last hour
+                    if (send_mail(ip_addresses[i], timestamp) == 1) {
+                        continue;   // if the email wasn't send, do not update the time and try again next loop
+                    }
                     times[i] = timestamp; // save the timestamp of last email sent
                 }
         }
