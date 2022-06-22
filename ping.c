@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define _MAIL "martin.pit18@gmail.com" // to which address to sent the mail
+#define _MAIL "" // to which address to sent the mail
 #define _DELAY 10 // delay between pings in seconds
 #define _MAIL_DELAY 1 // delay between emails in hours
 
