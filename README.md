@@ -25,7 +25,7 @@ Start the application in the foreground and give it up to 5 IPs, close it using 
 $ ./ping 1.1.1.1 2.2.2.2 ...
 ```
 
-Start the application in the background and give it up to 5 IPs
+Start the application in the background by using & at the end of the command and give it up to 5 IPs
 
 ```bash
 $ ./ping 1.1.1.1 2.2.2.2 ... &
